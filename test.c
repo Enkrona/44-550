@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main(int argc, char* argv[])
 {
@@ -7,7 +9,7 @@ int main(int argc, char* argv[])
 	long l;
 	float f;
 	double d;
-	
+	int random_nums;
 
 	// In class testing of conditionals 9-7-18	
 	unsigned int temperature = -10;
@@ -67,8 +69,14 @@ int main(int argc, char* argv[])
 	printf("My name is %s\n", "u wot m8?");
 	printf(" %d %s %f\n", 42, "towel", 1.234);
 	
-	
-	
+	//  In class examples from 9-10 - messing with rand
+	i = 0;
+	for (; i <10; i++)
+	{	
+		srand(time());
+		random_nums = rand();
+		printf("%d \n ", random_nums);
+	}
 
 	return 0;
 
