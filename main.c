@@ -9,8 +9,6 @@ int bar();
 int main(int argc, char* argv[])
 {
 
-	int a;
-	float a;
 	greet(96);
 	foo();
 	return 0;
