@@ -73,7 +73,8 @@ int main(int argc, char* argv[])
 	i = 0;
 	for (; i <10; i++)
 	{	
-		srand(time());
+		// the for loop is reseeding it with the current time each time
+		//srand(time(0));
 		random_nums = rand();
 		printf("%d \n ", random_nums);
 	}
