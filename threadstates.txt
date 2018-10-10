@@ -93,4 +93,20 @@ DEADLOCK:
 			2. 
 			3. Circular wait: when all resources held, and processes point to
 				all other resources which is held by another. 
-			4. 
+			4.
+	Dealing with Deadlock:
+		1. Ignore it! (not recommended)
+		2. Detect it and recover from it
+		3. Avoid it: Make deadlock impossible by building in safety checks
+		4. Prevent it: Short ciruit conditions 
+		WE NEED MUTUAL EXCLUSION, and prefer NOT TO PREEMPT NECESSARY RESOURCES
+		*
+		*
+	Breaking Dealock:
+		1. Hold and Wait
+			a) Processes must get all resources before it begins work - ex: Batch
+			b) must release all resources prior to getting new ones - ex: Interactive
+			EX: Philosphers
+				- ony allowing them to grab both forks if both are available
+			
+ 
