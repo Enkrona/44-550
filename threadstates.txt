@@ -108,5 +108,69 @@ DEADLOCK:
 			b) must release all resources prior to getting new ones - ex: Interactive
 			EX: Philosphers
 				- ony allowing them to grab both forks if both are available
+		2. State Changing:
+			Only allow the system to change state if it is safe to do so
+				- ex: traffic lights in a busy city, smooth flow to traffic
+			Analyze the system state to see if it is safe
+			When a request comes in, examine the current state/allocation and 
+			maximum claim	
+				- Grabbing 6 packets of ketchup, when you really need 4, but worst
+				  case scenario
+		3. Bankers Algorithim:
+			look at current state and determine if it is a safe/unsafe state
+			Respurce Allocation State: 
+				- Total number of resources in the system
+					- What are available overall
+				- Number of allocated resources
+					- What has been given out already
+				- Maximum resource claim of a process
+					- Worst case, how many resources might a process need?
+			Can determine safe state or if ia request puts us in a safe state
+			Bankers Algorithim Data Structure
+				Vector C: number of resources of type r (i.e. total 8GB of RAM)
+				Matrix A: Number of resources of type r allocated to process p
+				Matrix M: M[p][r]: max # of r needed by p
+			EX:
+				5 processes p
+				4 resources - v[5,6,8,4] -
+					 ex: 5 TB of storage, 6 cores, 8 gb ram, 4Gbit of Network
+				See example slide in 05_deadlock.pdf for chart
+				-- could complete resource 3 on slide 14 so it could complete
+				  Then P3 will return its resources to the system
+				-- Next we give P1 resources, then it releases its max claim
+				--  Next P2 gets resources, frees those
+				-- then we give P4, it completes and frees
+				-- Finally P5 gets what it needs and frees it all
+				All processes completed, all resources freed, it is safe
+			EX: same as above but back at begining where resources have been allocated
+				But now, P1 requests 2 units of r4, 
+				M	       A		   Need
+			3 | 2 | 2 | 2    2 | 1 | 1 | 1       1 | 1 | 1 | 0  
+			2 | 1 | 1 | 2    0 | 1 | 1 | 0       2 | 0 | 0 | 2
+ 			1 | 1 | 3 | 1    1 | 1 | 1 | 0	     0 | 0 | 2 | 1
+			3 | 4 | 2 | 2 	 1 | 1 | 2 | 1	     2 | 3 | 0 | 1
+			2 | 4 | 1 | 2    1 | 2 | 1 | 1	     1 | 2 | 0 | 3
 			
- 
+				Remaining Available: ( 0, 0, 2, 0 )
+				It is an unsafe state since no process could complete with the
+				available resources, it is unsafe. 
+		
+		Detectting Deadlock:
+			OS allocates resources when resources are available
+			Languages have safety nets, which make them slower, but no apocoplyse 
+			Can lead to deadlock, but we need a detection algorithim to detect DL
+			  because we cannot gurantee DL will not occur
+			Methods: 
+				- Check on every allocation (early detection) -- VERY SLOW, valgrind
+				- Check the RAG (very hard with multiple copies of same resource)
+					* 5 keys to a room, 5 people have a key, hard to tell! 
+					* How do you know when to use the algorithim? 
+				- ID deadlock processes - How do we know it is deadlocked, and is 
+				    just waiting for resources? 
+					* Windows "This program has stopped responding prompt" 
+		Recovering from Deadlock:
+			kill -9 (With fire) 
+			but wait, there's more
+				other processes could be Deadlocked too, kill them all.
+				The children too. 
+
