@@ -1,0 +1,14 @@
+Demo in class lab
+-- threads and process states
+-- processes are completely seperate from one another
+
+Activity over differences between threads and processes
+	* shared memory, etc. 
+Questions:
+	1. The pid increments by 14 per time on average
+	2. After placing a fork, the program appears to run twice. Once with the pid of the 
+	   program, than the pid of the fork being sequential and incremented by 1. 
+	   The second running results in the pid of the fork, for the curren pid and 
+	   the fork pid as 0. 
+
+
