@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 		//  Sending nine pitches
 		int i = 0;
 		sleep(1);
-		for (i; i < 10; i++)
+		for (i; i < 9; i++)
 		{
 			sleep(1);
 			kill(cpid, SIGUSR1);
@@ -33,6 +33,8 @@ int main(int argc, char* argv[])
 	}
 	
 	sleep(1);
+	//  Ending the child process, otherwise it will just stay running
+	kill(cpid, SIGINT);
 	return 0;
 
 
