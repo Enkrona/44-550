@@ -44,7 +44,7 @@ void batter(int sig)
 {	
 	//  For now it is just a strike, one processes sending another signal
 	//  The counter for how many strikes have been striked? 
-	static int num = 1;
+	static int num = 0;
 	num += 1;
 	if (num == 4) num = 1;
 	printf("STRIKE %d\n", num);
