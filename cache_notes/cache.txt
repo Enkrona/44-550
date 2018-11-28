@@ -1,0 +1,11 @@
+Cache will normally:
+	- Spatial: Is a area of contigous memeory which the OS loads to the CPU Cache 
+		- of memory which is near and it thinks will be used due to the program
+	- Ro major: Rows of contigous memory
+	- Column major: Columns of contigous memory 
+
+RAM is ~13x slower than cache - needs clock cycles to investigate and read it
+
+This example code displays how much data is loaded into RAM, how much more effective writing code which exploits that "contigous" memory model. 
+
+The second timing is non-contigous makes it much more difficult and time-consuming it is! 
